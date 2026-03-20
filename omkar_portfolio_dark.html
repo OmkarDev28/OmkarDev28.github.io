@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Omkar Ugalmugale — Portfolio</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f1117;--surface:#161a24;--surface2:#1c2130;--border:#ffffff14;--border2:#ffffff22;
+  --text:#e8e6e1;--muted:#8a8a99;--accent:#4ade80;--accent-dim:#1a3a26;--accent2:#f59e0b;
+  --tag-bg:#1e2333;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(15,17,23,0.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 32px;height:52px;display:flex;align-items:center;justify-content:space-between}
+.nav-name{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;color:var(--text)}
+.nav-links{display:flex;gap:22px;list-style:none}
+.nav-links a{font-size:0.72rem;font-weight:500;color:var(--muted);text-decoration:none;letter-spacing:0.07em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+#hero{min-height:100vh;display:flex;align-items:center;padding:80px 60px 48px}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1000px;margin:0 auto;width:100%;align-items:center}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;background:var(--accent-dim);color:var(--accent);font-size:0.68rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:18px}
+.hero-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--accent)}
+h1{font-family:'Fraunces',serif;font-size:clamp(2.2rem,4vw,3.4rem);font-weight:600;line-height:1.05;letter-spacing:-0.03em;color:var(--text);margin-bottom:14px}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-bio{color:var(--muted);font-size:0.92rem;line-height:1.75;max-width:420px;margin-bottom:28px}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#0a1a10;padding:9px 20px;border-radius:5px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:opacity 0.2s}
+.btn-primary:hover{opacity:0.85}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border2);padding:9px 20px;border-radius:5px;font-size:0.82rem;font-weight:500;text-decoration:none;transition:border-color 0.2s,color 0.2s}
+.btn-secondary:hover{border-color:var(--accent);color:var(--accent)}
+.hero-right{display:flex;flex-direction:column;gap:10px}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 18px;display:flex;align-items:center;gap:12px}
+.stat-icon{width:36px;height:36px;background:var(--accent-dim);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.stat-label{font-size:0.68rem;color:var(--muted);font-weight:500;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1px}
+.stat-value{font-size:0.85rem;font-weight:500;color:var(--text)}
+section{padding:56px 60px}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-label{font-size:0.66rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-weight:600;letter-spacing:-0.02em;margin-bottom:32px;color:var(--text)}
+.alt-bg{background:var(--surface)}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.skill-group{border:1px solid var(--border);border-radius:10px;padding:16px 18px;background:var(--surface2)}
+.skill-group-title{font-size:0.68rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{background:var(--tag-bg);color:var(--muted);font-size:0.72rem;font-weight:500;padding:3px 9px;border-radius:4px;border:1px solid var(--border)}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:22px;position:relative;transition:transform 0.2s,border-color 0.2s}
+.project-card:hover{transform:translateY(-2px);border-color:var(--border2)}
+.project-num{font-family:'Fraunces',serif;font-size:1.8rem;font-weight:600;color:#ffffff08;position:absolute;top:14px;right:18px;line-height:1}
+.project-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600;margin-bottom:4px;padding-right:40px;color:var(--text)}
+.project-stack{font-size:0.68rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px}
+.project-bullets{list-style:none;margin-top:8px}
+.project-bullets li{font-size:0.8rem;color:var(--muted);padding-left:12px;position:relative;margin-bottom:4px}
+.project-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.68rem;top:1px}
+.edu-card{border:1px solid var(--border);border-radius:12px;padding:22px 26px;background:var(--surface2);margin-bottom:14px}
+.edu-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.edu-degree{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:600}
+.edu-year{font-size:0.72rem;font-weight:600;color:var(--accent);background:var(--accent-dim);padding:3px 9px;border-radius:20px;white-space:nowrap}
+.edu-inst{font-size:0.82rem;color:var(--muted);margin-bottom:10px}
+.edu-courses{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.exp-card{border-left:2px solid var(--accent);padding:0 0 24px 22px;position:relative}
+.exp-card::before{content:'';width:8px;height:8px;background:var(--accent);border-radius:50%;position:absolute;left:-5px;top:4px}
+.exp-role{font-family:'Fraunces',serif;font-size:1rem;font-weight:600;margin-bottom:2px}
+.exp-meta{font-size:0.72rem;color:var(--muted);font-weight:500;margin-bottom:8px}
+.exp-bullets{list-style:none}
+.exp-bullets li{font-size:0.82rem;color:var(--muted);padding-left:12px;position:relative;margin-bottom:5px}
+.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.68rem;top:1px}
+.cert-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
+.cert-card{border:1px solid var(--border);border-radius:10px;padding:14px 16px;background:var(--surface2);display:flex;gap:12px;align-items:flex-start}
+.cert-icon{font-size:1.1rem;margin-top:1px}
+.cert-name{font-size:0.85rem;font-weight:500;margin-bottom:2px;color:var(--text)}
+.cert-issuer{font-size:0.72rem;color:var(--muted)}
+.activity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.activity-card{border:1px solid var(--border);border-radius:10px;padding:16px;background:var(--surface)}
+.activity-title{font-weight:500;font-size:0.85rem;margin-bottom:2px;color:var(--text)}
+.activity-event{font-size:0.68rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px}
+.activity-desc{font-size:0.78rem;color:var(--muted);line-height:1.6}
+.hobbies-wrap{display:flex;flex-wrap:wrap;gap:10px}
+.hobby-pill{display:flex;align-items:center;gap:8px;background:var(--surface2);border:1px solid var(--border);border-radius:50px;padding:8px 16px;font-size:0.82rem;color:var(--muted)}
+.hobby-icon{font-size:1rem}
+#contact{background:var(--accent-dim);border-top:1px solid #ffffff0f}
+#contact .section-label{color:rgba(74,222,128,0.6)}
+#contact .section-title{color:var(--text)}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.contact-item{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--text);transition:background 0.2s}
+.contact-item:hover{background:rgba(255,255,255,0.08)}
+.contact-item-icon{font-size:1.2rem}
+.contact-item-label{font-size:0.66rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:2px}
+.contact-item-val{font-size:0.8rem;word-break:break-all;color:var(--text)}
+.divider{border:none;border-top:1px solid var(--border);margin:0}
+footer{text-align:center;padding:18px;font-size:0.72rem;color:var(--muted);background:var(--bg);border-top:1px solid var(--border)}
+@media(max-width:768px){
+  nav{padding:0 16px}.nav-links{gap:14px}
+  #hero{padding:80px 20px 40px}.hero-grid{grid-template-columns:1fr}.hero-right{display:none}
+  section{padding:44px 20px}.projects-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Omkar Ugalmugale.</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="about" style="padding-top:0">
+  <div id="hero">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-tag">Open to Internships</div>
+        <h1>Omkar<br/><em>Ugalmugale</em></h1>
+        <p class="hero-bio">Third-year CS Engineering student passionate about problem-solving, AI applications, and software development. Building backends, training models, and flying drones — one commit at a time.</p>
+        <div class="hero-ctas">
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-secondary">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="stat-card"><div class="stat-icon">🎓</div><div><div class="stat-label">Institution</div><div class="stat-value">VCET, Mumbai — B.E. CSE</div></div></div>
+        <div class="stat-card"><div class="stat-icon">🤖</div><div><div class="stat-label">Focus Areas</div><div class="stat-value">ML, Backend Dev, Drones</div></div></div>
+        <div class="stat-card"><div class="stat-icon">🏆</div><div><div class="stat-label">Hackathons & Events</div><div class="stat-value">4 competitions participated</div></div></div>
+        <div class="stat-card"><div class="stat-icon">📜</div><div><div class="stat-label">Certifications</div><div class="stat-value">ML Specialization (Stanford)</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="skills" class="alt-bg">
+  <div class="section-inner">
+    <div class="section-label">Toolkit</div>
+    <div class="section-title">Skills & Technologies</div>
+    <div class="skills-grid">
+      <div class="skill-group"><div class="skill-group-title">Languages</div><div class="skill-tags"><span class="tag">C</span><span class="tag">C++</span><span class="tag">Python</span><span class="tag">JavaScript</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">Web Dev</div><div class="skill-tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">REST APIs</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">ML</div><div class="skill-tags"><span class="tag">Scikit-learn</span><span class="tag">TensorFlow</span><span class="tag">Pandas</span><span class="tag">NumPy</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">Databases</div><div class="skill-tags"><span class="tag">PostgreSQL</span><span class="tag">SQLite</span><span class="tag">MongoDB</span></div></div>
+      <div class="skill-group"><div class="skill-group-title">Dev Tools</div><div class="skill-tags"><span class="tag">Git</span><span class="tag">VS Code</span><span class="tag">Google Colab</span></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">Work</div>
+    <div class="section-title">Projects</div>
+    <div class="projects-grid">
+      <div class="project-card"><div class="project-num">01</div><div class="project-title">Unibase — BaaS Engine</div><div class="project-stack">Node.js · PostgreSQL · Express · REST APIs</div><ul class="project-bullets"><li>Full BaaS platform — frontend devs query PostgreSQL directly via secure REST API.</li><li>Monaco Editor dashboard with real-time SQL error parsing.</li><li>Custom JSON-to-SQL transpiler with parameterized queries to prevent injection.</li></ul></div>
+      <div class="project-card"><div class="project-num">02</div><div class="project-title">Heart Disease Classification</div><div class="project-stack">Python · Scikit-learn · TensorFlow · Pandas</div><ul class="project-bullets"><li>ML model predicting heart disease risk using the NHANES dataset.</li><li>Feature engineering and missing value handling on large datasets.</li><li>Benchmarked logistic regression, decision trees, and neural networks.</li></ul></div>
+      <div class="project-card"><div class="project-num">03</div><div class="project-title">Parivartan</div><div class="project-stack">Hackathon · ByteVerse, NIT Patna · Mar 2024</div><ul class="project-bullets"><li>Platform for citizens to report civic issues to local authorities for faster resolution.</li></ul></div>
+      <div class="project-card"><div class="project-num">04</div><div class="project-title">AI Financial Report Generator</div><div class="project-stack">Generative AI · TechBlitz, NSDC VCET · Feb 2025</div><ul class="project-bullets"><li>Generative AI tool that auto-creates comprehensive financial analysis reports.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="education" class="alt-bg">
+  <div class="section-inner">
+    <div class="section-label">Background</div>
+    <div class="section-title">Education</div>
+    <div class="edu-card">
+      <div class="edu-header"><div class="edu-degree">B.E. in Computer Science & Engineering</div><div class="edu-year">2023 – 2027</div></div>
+      <div class="edu-inst">Vidyavardhini's College of Engineering & Technology, Vasai · University of Mumbai</div>
+      <div class="edu-courses"><span class="tag">DSA</span><span class="tag">OS</span><span class="tag">DBMS</span><span class="tag">OOP</span><span class="tag">Web Computing</span><span class="tag">Computer Networks</span><span class="tag">Machine Learning</span></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Experience</div>
+    <div class="section-title">Work & Involvement</div>
+    <div class="exp-card">
+      <div class="exp-role">Control Systems Member — Team AIRNOVA</div>
+      <div class="exp-meta">Feb 2026 – Present</div>
+      <ul class="exp-bullets">
+        <li>Bridging high-level computer vision perception models with low-level drone flight controllers.</li>
+        <li>Developing real-time flight control algorithms and finite state machines for autonomous platforms.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="certifications" class="alt-bg">
+  <div class="section-inner">
+    <div class="section-label">Learning</div>
+    <div class="section-title">Certifications</div>
+    <div class="cert-list">
+      <div class="cert-card"><div class="cert-icon">🧠</div><div><div class="cert-name">Supervised ML: Regression & Classification</div><div class="cert-issuer">Stanford / DeepLearning.AI · Jan 2025</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🧠</div><div><div class="cert-name">Advanced Learning Algorithms</div><div class="cert-issuer">Stanford / DeepLearning.AI · Feb 2025</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🧠</div><div><div class="cert-name">Unsupervised Learning, Recommenders & RL</div><div class="cert-issuer">Stanford / DeepLearning.AI · May 2025</div></div></div>
+      <div class="cert-card"><div class="cert-icon">🌐</div><div><div class="cert-name">Web Development Bootcamp</div><div class="cert-issuer">Udemy · Oct 2025</div></div></div>
+      <div class="cert-card"><div class="cert-icon">💻</div><div><div class="cert-name">Programming using C & C++</div><div class="cert-issuer">Keerti Computer Institute · Mar 2024</div></div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="activities">
+  <div class="section-inner">
+    <div class="section-label">Extra-Curricular</div>
+    <div class="section-title">Activities & Participation</div>
+    <div class="activity-grid">
+      <div class="activity-card"><div class="activity-event">Paper-a-thon · MLSC VCET · Oct 2025</div><div class="activity-title">Cloudburst & Rainfall Prediction</div><div class="activity-desc">Co-authored a research paper on Cloudburst and Rainfall Prediction using ML.</div></div>
+      <div class="activity-card"><div class="activity-event">TechBlitz · NSDC VCET · Feb 2025</div><div class="activity-title">AI Financial Analysis Tool</div><div class="activity-desc">Built a generative AI tool creating comprehensive financial analysis reports.</div></div>
+      <div class="activity-card"><div class="activity-event">Oscillations · VCET · Mar 2024</div><div class="activity-title">Heart Disease Prediction Research</div><div class="activity-desc">Presented a paper on control group impact in heart disease prediction models.</div></div>
+      <div class="activity-card"><div class="activity-event">ByteVerse · NIT Patna · Mar 2024</div><div class="activity-title">Parivartan — Civic Issue Platform</div><div class="activity-desc">Built a platform to report civic issues to local authorities for faster resolution.</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="hobbies" class="alt-bg">
+  <div class="section-inner">
+    <div class="section-label">Personal</div>
+    <div class="section-title">Hobbies & Interests</div>
+    <div class="hobbies-wrap">
+      <div class="hobby-pill"><span class="hobby-icon">🚴</span> Cycling</div>
+      <div class="hobby-pill"><span class="hobby-icon">📚</span> Reading</div>
+      <div class="hobby-pill"><span class="hobby-icon">✍️</span> Writing</div>
+      <div class="hobby-pill"><span class="hobby-icon">🌍</span> Travelling</div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Let's Connect</div>
+    <div class="section-title">Get in Touch</div>
+    <div class="contact-grid">
+      <a class="contact-item" href="mailto:omkarugalmugale84@gmail.com"><div class="contact-item-icon">✉️</div><div><div class="contact-item-label">Email</div><div class="contact-item-val">omkarugalmugale84@gmail.com</div></div></a>
+      <a class="contact-item" href="https://github.com/OmkarDev28" target="_blank"><div class="contact-item-icon">🐙</div><div><div class="contact-item-label">GitHub</div><div class="contact-item-val">github.com/OmkarDev28</div></div></a>
+      <a class="contact-item" href="tel:+918468951293"><div class="contact-item-icon">📞</div><div><div class="contact-item-label">Phone</div><div class="contact-item-val">+91 8468951293</div></div></a>
+      <div class="contact-item"><div class="contact-item-icon">📍</div><div><div class="contact-item-label">Location</div><div class="contact-item-val">Mumbai, India</div></div></div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Omkar Ugalmugale · Mumbai 🇮🇳</footer>
+
+</body>
+</html>
